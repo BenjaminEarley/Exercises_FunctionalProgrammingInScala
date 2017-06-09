@@ -40,9 +40,6 @@ sealed trait Stream[+A] {
       cons(p(a), b)
     )
 
-  def map_1[B](p: A=> B): Stream[B] =
-
-
   def filter(p: A => Boolean): Stream[A] =
     foldRight(empty[A])((a, b) =>
       if (p(a)) cons(a, b)
@@ -138,6 +135,11 @@ def constant_1[A](a: A): Stream[A] =
 
 constant_1(1).take(10).toList
 
+def map_1[A, B](p: A => B)(str: Stream[A]): Stream[B] =
+  unfold(str) {
+    case Cons(h, t) => Some((p(h()), t()))
+    case Empty => None
+  }
 
 
 
