@@ -4,7 +4,7 @@
 		module="scalabookexercises$sources_2.12"
 		revision="1.0"
 		status="integration"
-		publication="20170721152348"
+		publication="20180813114717"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
